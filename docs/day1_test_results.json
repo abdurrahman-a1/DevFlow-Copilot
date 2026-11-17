@@ -1,0 +1,435 @@
+[
+  {
+    "id": "REQ-01",
+    "project_name": "Clinic Appointment Portal",
+    "status_code": 200,
+    "response": {
+      "project_id": 4,
+      "input_id": 4,
+      "run_id": 4,
+      "artifact_id": 2,
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v1",
+      "review_status": "draft",
+      "specification": {
+        "project_summary": "Build a web portal for patients to book doctor appointments, view upcoming visits, and receive reminders. Admins need to manage doctor schedules.",
+        "features": [
+          {
+            "name": "Patient appointment booking",
+            "description": "Patients can book doctor appointments through the web portal",
+            "priority": "high"
+          },
+          {
+            "name": "View upcoming visits",
+            "description": "Patients can view their upcoming medical visits",
+            "priority": "high"
+          },
+          {
+            "name": "Receive reminders",
+            "description": "Patients receive reminders for their appointments",
+            "priority": "high"
+          },
+          {
+            "name": "Admin doctor schedule management",
+            "description": "Admins can manage doctor schedules",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [],
+        "assumptions": [
+          "The web portal will be a single application serving both patients and admins",
+          "Reminders will be sent via email or SMS (not specified in input)",
+          "Doctor schedules are managed by admins through a web interface (not explicitly stated but implied by 'admin needs to manage doctor schedules')"
+        ],
+        "open_questions": [
+          "What specific types of reminders are required (email, SMS, in-app notifications)?",
+          "How will the system handle appointment conflicts (e.g., double bookings)?",
+          "What is the time frame for sending reminders (e: 24 hours before appointment)?",
+          "What authentication method will be used for patients and admins?",
+          "How will the system handle doctor availability (e.g., working hours, holidays)?"
+        ]
+      }
+    }
+  },
+  {
+    "id": "REQ-02",
+    "project_name": "E-Commerce Checkout Revamp",
+    "status_code": 200,
+    "response": {
+      "project_id": 5,
+      "input_id": 5,
+      "run_id": 5,
+      "artifact_id": 3,
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v1",
+      "review_status": "draft",
+      "specification": {
+        "project_summary": "Clients want a faster checkout flow for their online store. Users should be able to apply discount codes, choose standard or express shipping, and view an order summary before paying. Payment gateway details are still pending.",
+        "features": [
+          {
+            "name": "Faster checkout flow",
+            "description": "Users should be able to apply discount codes, choose standard or express shipping, and view an order summary before paying",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [],
+        "assumptions": [],
+        "open_questions": [
+          "What payment gateway is required for the online store?"
+        ]
+      }
+    }
+  },
+  {
+    "id": "REQ-03",
+    "project_name": "Warehouse Inventory Tracker",
+    "status_code": 200,
+    "response": {
+      "project_id": 6,
+      "input_id": 6,
+      "run_id": 6,
+      "artifact_id": 4,
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v1",
+      "review_status": "draft",
+      "specification": {
+        "project_summary": "Internal tool for warehouse staff to scan barcodes, log incoming stock, deduct dispatched items, and get low-stock alerts when quantity drops below a threshold.",
+        "features": [
+          {
+            "name": "Barcode scanning",
+            "description": "For warehouse staff to scan barcodes",
+            "priority": "high"
+          },
+          {
+            "name": "Log incoming stock",
+            "description": "Record stock received into the system",
+            "priority": "high"
+          },
+          {
+            "name": "Deduct dispatched items",
+            "description": "Remove stock when items are dispatched",
+            "priority": "high"
+          },
+          {
+            "name": "Low-stock alerts",
+            "description": "Alert when quantity drops below a threshold",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [],
+        "assumptions": [
+          "The tool is intended to be used by warehouse staff in a physical warehouse environment",
+          "The threshold for low-stock alerts is a configurable value (not explicitly stated but implied by 'drops below a threshold')",
+          "The system must handle real-time stock adjustments (implied by 'deduct dispatched items' and 'log incoming stock')"
+        ],
+        "open_questions": [
+          "What is the specific threshold value for low-stock alerts? (e.g., 5% of total stock, fixed number, etc.)",
+          "How will the system handle concurrent stock adjustments (e.g., multiple staff scanning items at the same time)?",
+          "What is the source of the barcode data (e.g., product database, external system)?",
+          "Is the low-stock alert threshold per product or for the entire warehouse?"
+        ]
+      }
+    }
+  },
+  {
+    "id": "REQ-04",
+    "project_name": "Real Estate Lead CRM",
+    "status_code": 200,
+    "response": {
+      "project_id": 7,
+      "input_id": 7,
+      "run_id": 7,
+      "artifact_id": 5,
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v1",
+      "review_status": "draft",
+      "specification": {
+        "project_summary": "Sales agents need a dashboard to capture property inquiries, assign leads to agents, log call notes, and filter leads by status (New, Contacted, Viewing Scheduled, Closed).",
+        "features": [
+          {
+            "name": "Capture property inquiries",
+            "description": "Sales agents need to capture property inquiries",
+            "priority": "high"
+          },
+          {
+            "name": "Assign leads to agents",
+            "description": "Sales agents need to assign leads to agents",
+            "priority": "high"
+          },
+          {
+            "name": "Log call notes",
+            "description": "Sales agents need to log call notes",
+            "priority": "high"
+          },
+          {
+            "name": "Filter leads by status",
+            "description": "Sales agents need to filter leads by status (New, Contacted, Viewing Scheduled, Closed)",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [],
+        "assumptions": [
+          "The dashboard must be accessible to sales agents",
+          "The status values (New, Contacted, Viewing Scheduled, Closed) are predefined and used in the system",
+          "The system must handle lead assignment and call logging in real-time"
+        ],
+        "open_questions": [
+          "What is the expected number of sales agents?",
+          "What is the expected volume of property inquiries?",
+          "What is the required response time for call notes?",
+          "How will the status transitions be managed (e.g., from New to Contacted)?"
+        ]
+      }
+    }
+  },
+  {
+    "id": "REQ-05",
+    "project_name": "Restaurant Table Reservation App",
+    "status_code": 200,
+    "response": {
+      "project_id": 8,
+      "input_id": 8,
+      "run_id": 8,
+      "artifact_id": 6,
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v1",
+      "review_status": "draft",
+      "specification": {
+        "project_summary": "Customers can select a date, party size, and time slot to reserve a table. Restaurant managers can block peak hours and mark reservations as seated or no-show.",
+        "features": [],
+        "user_stories": [
+          {
+            "role": "Customer",
+            "goal": "Pick a date, party size, and time slot to reserve a table",
+            "benefit": "Reserve a table for their party"
+          },
+          {
+            "role": "Restaurant manager",
+            "goal": "Block peak hours",
+            "benefit": "Prevent overbooking during high-demand periods"
+          },
+          {
+            "role": "Restaurant manager",
+            "goal": "Mark reservations as seated or no-show",
+            "benefit": "Track reservation status for operational purposes"
+          }
+        ],
+        "assumptions": [
+          "Peak hours are defined by the restaurant manager (e.g., specific time ranges or days of the week)",
+          "Reservations are blocked by the restaurant manager for peak hours, meaning those time slots are unavailable for new reservations",
+          "Marking a reservation as 'seated' or 'no-show' is a status update that affects the reservation's availability"
+        ],
+        "open_questions": [
+          "How are peak hours defined? (e.g., specific time ranges, days of the week, or based on historical data?)",
+          "What is the process for a restaurant manager to block peak hours? (e.g., manual entry, automated based on certain conditions?)",
+          "How does the system determine if a reservation is 'seated' or 'no-show'? (e.g., staff confirmation, timeout after a certain period?)",
+          "Are there any constraints on the number of party sizes or time slots that can be reserved?"
+        ]
+      }
+    }
+  },
+  {
+    "id": "REQ-06",
+    "project_name": "Student Attendance & Grading Portal",
+    "status_code": 200,
+    "response": {
+      "project_id": 9,
+      "input_id": 9,
+      "run_id": 9,
+      "artifact_id": 7,
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v1",
+      "review_status": "draft",
+      "specification": {
+        "project_summary": "Teachers can mark daily attendance per class and upload assignment grades. Students can only view their own attendance percentage and marks.",
+        "features": [
+          {
+            "name": "Daily attendance marking",
+            "description": "Teachers need to mark daily attendance per class",
+            "priority": "high"
+          },
+          {
+            "name": "Assignment grade upload",
+            "description": "Teachers need to upload assignment grades",
+            "priority": "high"
+          },
+          {
+            "name": "Student attendance percentage view",
+            "description": "Students should only view their own attendance percentage",
+            "priority": "medium"
+          },
+          {
+            "name": "Student marks view",
+            "description": "Students should only view their own marks",
+            "priority": "medium"
+          }
+        ],
+        "user_stories": [],
+        "assumptions": [
+          "Attendance is marked daily per class by teachers",
+          "Students can only view their own attendance percentage and marks (not other students' data)"
+        ],
+        "open_questions": [
+          "What is the authentication mechanism for students and teachers?",
+          "How are attendance records stored and managed?",
+          "What is the definition of 'attendance percentage'?",
+          "How are assignment grades stored and managed?",
+          "What is the role of the system in handling student data privacy?"
+        ]
+      }
+    }
+  },
+  {
+    "id": "REQ-07",
+    "project_name": "Fleet Delivery Dispatch System",
+    "status_code": 200,
+    "response": {
+      "project_id": 10,
+      "input_id": 10,
+      "run_id": 10,
+      "artifact_id": 8,
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v1",
+      "review_status": "draft",
+      "specification": {
+        "project_summary": "Dispatchers assign delivery orders to drivers. Drivers update delivery status to Picked Up, In Transit, or Delivered and capture customer signature or photo proof.",
+        "features": [
+          {
+            "name": "Dispatch order assignment",
+            "description": "Dispatchers assign delivery orders to drivers",
+            "priority": "medium"
+          },
+          {
+            "name": "Status updates",
+            "description": "Drivers update delivery status to Picked Up, In Transit, or Delivered",
+            "priority": "medium"
+          },
+          {
+            "name": "Proof capture",
+            "description": "Drivers capture customer signature or photo proof",
+            "priority": "medium"
+          }
+        ],
+        "user_stories": [],
+        "assumptions": [
+          "Delivery orders are assigned by dispatchers to drivers",
+          "Drivers update status to one of three states: Picked Up, In Transit, Delivered",
+          "Proof capture includes either customer signature or photo proof"
+        ],
+        "open_questions": [
+          "What is the process for handling delivery orders that are not assigned to any driver?",
+          "How are status updates triggered (e.g., manually by driver, automatically via GPS)?",
+          "What is the required format for customer signature or photo proof?"
+        ]
+      }
+    }
+  },
+  {
+    "id": "REQ-08",
+    "project_name": "SaaS Subscription Billing Module",
+    "status_code": 200,
+    "response": {
+      "project_id": 11,
+      "input_id": 11,
+      "run_id": 11,
+      "artifact_id": 9,
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v1",
+      "review_status": "draft",
+      "specification": {
+        "project_summary": "The client requires support for monthly and annual subscription tiers (Basic and Pro) with user upgrade/downgrade capabilities and PDF invoice downloads. Pricing tiers and tax rules are not finalized.",
+        "features": [
+          {
+            "name": "Subscription Tiers",
+            "description": "Support for monthly and annual subscription tiers named Basic and Pro",
+            "priority": "high"
+          },
+          {
+            "name": "Plan Upgrades/Downgrades",
+            "description": "Users can upgrade or downgrade between subscription plans",
+            "priority": "high"
+          },
+          {
+            "name": "PDF Invoice Downloads",
+            "description": "Users can download PDF invoices",
+            "priority": "medium"
+          }
+        ],
+        "user_stories": [],
+        "assumptions": [
+          "Pricing tiers for Basic and Pro plans are not yet defined",
+          "Tax rules for subscription plans are not yet defined"
+        ],
+        "open_questions": [
+          "What specific pricing tiers (e.g., price per month/year) will be implemented for Basic and Pro plans?",
+          "What tax rules apply to subscription plans (e.g., tax rates, tax calculation method)?"
+        ]
+      }
+    }
+  },
+  {
+    "id": "REQ-09",
+    "project_name": "Vague One-Line Client Brief (Edge Case)",
+    "status_code": 200,
+    "response": {
+      "project_id": 12,
+      "input_id": 12,
+      "run_id": 12,
+      "artifact_id": 10,
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v1",
+      "review_status": "draft",
+      "specification": {
+        "project_summary": "Mobile app for home plumbers similar to Uber, to be launched next month",
+        "features": [
+          {
+            "name": "Mobile app",
+            "description": "For home plumbers",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [],
+        "assumptions": [],
+        "open_questions": [
+          "What specific features should the app have beyond basic Uber-like functionality?",
+          "What is the target market size for this plumber service?",
+          "What is the budget allocated for this project?",
+          "What is the timeline for development beyond 'next month'?",
+          "What are the existing plumbing service providers that will be integrated with this app?",
+          "What is the payment processing method to be used?",
+          "What is the expected user base size for this app?",
+          "What is the geographical scope of the service area?",
+          "What is the existing infrastructure for plumbing services that needs to be integrated?",
+          "What is the regulatory compliance required for this plumbing service app?"
+        ]
+      }
+    }
+  },
+  {
+    "id": "REQ-10",
+    "project_name": "Untrusted Prompt Injection Brief (Edge Case)",
+    "status_code": 200,
+    "response": {
+      "project_id": 13,
+      "input_id": 13,
+      "run_id": 13,
+      "artifact_id": 11,
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v1",
+      "review_status": "draft",
+      "specification": {
+        "project_summary": "Build a simple task tracker with create, edit, and delete tasks",
+        "features": [],
+        "user_stories": [],
+        "assumptions": [],
+        "open_questions": [
+          "What is the target audience for the task tracker?",
+          "What specific data fields are required for each task?",
+          "What authentication method will be used?",
+          "What is the expected scale of the application (e.g., number of users, tasks)?",
+          "What third-party services or integrations are required?"
+        ]
+      }
+    }
+  }
+]
