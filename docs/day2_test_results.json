@@ -1,0 +1,988 @@
+[
+  {
+    "case_id": "T-01",
+    "project_name": "Text: Leave Management",
+    "status_code": 200,
+    "response": {
+      "project_id": 23,
+      "input_id": 23,
+      "run_id": 23,
+      "artifact_id": 12,
+      "input_type": "text",
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": null,
+      "specification": {
+        "project_summary": "Leave request management system where employees can submit annual or sick leave requests and managers can approve or reject with comments.",
+        "features": [
+          {
+            "name": "Employee leave request submission",
+            "description": "Employees can submit annual or sick leave requests through the system.",
+            "priority": "high"
+          },
+          {
+            "name": "Manager approval/rejection with comments",
+            "description": "Managers can approve or reject leave requests with optional comments.",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "Employee",
+            "goal": "Submit an annual or sick leave request",
+            "benefit": "To request time off for work purposes as per company policy."
+          },
+          {
+            "role": "Manager",
+            "goal": "Approve or reject a leave request with comments",
+            "benefit": "To manage employee leave requests efficiently and provide feedback."
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [],
+        "evidence_notes": [
+          "[TEXT] Employees submit annual or sick leave requests; managers approve or reject with comments."
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "T-02",
+    "project_name": "Text: Expense Tracker",
+    "status_code": 200,
+    "response": {
+      "project_id": 24,
+      "input_id": 24,
+      "run_id": 24,
+      "artifact_id": 13,
+      "input_type": "text",
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": null,
+      "specification": {
+        "project_summary": "Staff can upload receipt photos and enter expense amount and category for finance reimbursement.",
+        "features": [
+          {
+            "name": "Receipt Photo Upload",
+            "description": "Staff can upload receipt photos for expense reimbursement.",
+            "priority": "high"
+          },
+          {
+            "name": "Expense Amount Entry",
+            "description": "Staff can enter the expense amount for reimbursement.",
+            "priority": "high"
+          },
+          {
+            "name": "Expense Category Selection",
+            "description": "Staff can select the expense category for reimbursement.",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "Staff",
+            "goal": "To submit expense reimbursement requests",
+            "benefit": "Finance team can process reimbursements efficiently with accurate expense data."
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [],
+        "evidence_notes": [
+          "[TEXT] Staff upload receipt photos and enter expense amount and category for finance reimbursement."
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "T-03",
+    "project_name": "Text: Course Catalog",
+    "status_code": 200,
+    "response": {
+      "project_id": 25,
+      "input_id": 25,
+      "run_id": 25,
+      "artifact_id": 14,
+      "input_type": "text",
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": null,
+      "specification": {
+        "project_summary": "Students browse available courses by semester, check prerequisites, and enroll online.",
+        "features": [
+          {
+            "name": "Course browsing by semester",
+            "description": "Students can view courses available for a specific academic semester",
+            "priority": "high"
+          },
+          {
+            "name": "Prerequisite checking",
+            "description": "Students can verify course prerequisites before enrollment",
+            "priority": "high"
+          },
+          {
+            "name": "Online enrollment",
+            "description": "Students can register for courses through the system",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "Student",
+            "goal": "Browse courses available for the current semester",
+            "benefit": "Identify courses to enroll in for the upcoming academic term"
+          },
+          {
+            "role": "Student",
+            "goal": "Check prerequisites for a course before enrollment",
+            "benefit": "Avoid enrollment in courses that have unmet prerequisites"
+          },
+          {
+            "role": "Student",
+            "goal": "Enroll in a course online",
+            "benefit": "Complete registration without physical interaction"
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [],
+        "evidence_notes": [
+          "[TEXT] Students browse available courses by semester, check prerequisites, and enroll online."
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "T-04",
+    "project_name": "Text: Vendor Directory",
+    "status_code": 200,
+    "response": {
+      "project_id": 26,
+      "input_id": 26,
+      "run_id": 26,
+      "artifact_id": 15,
+      "input_type": "text",
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": null,
+      "specification": {
+        "project_summary": "Procurement team stores vendor contacts, tax IDs, and contract expiry dates.",
+        "features": [
+          {
+            "name": "Vendor Contact Management",
+            "description": "Stores and manages vendor contact information",
+            "priority": "high"
+          },
+          {
+            "name": "Tax ID Management",
+            "description": "Stores and manages vendor tax identification numbers",
+            "priority": "high"
+          },
+          {
+            "name": "Contract Expiry Tracking",
+            "description": "Stores and tracks vendor contract expiration dates",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "Procurement Team Member",
+            "goal": "Store vendor contact information",
+            "benefit": "Maintain accurate vendor contact details for procurement activities"
+          },
+          {
+            "role": "Procurement Team Member",
+            "goal": "Store vendor tax identification numbers",
+            "benefit": "Ensure compliance with tax regulations by maintaining accurate tax IDs"
+          },
+          {
+            "role": "Procurement Team Member",
+            "goal": "Track vendor contract expiration dates",
+            "benefit": "Proactively manage vendor contracts before expiration to avoid disruptions"
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [],
+        "evidence_notes": [
+          "[TEXT] Procurement team stores vendor contacts, tax IDs, and contract expiry dates."
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "T-05",
+    "project_name": "Text: Bug Triage Board",
+    "status_code": 200,
+    "response": {
+      "project_id": 27,
+      "input_id": 27,
+      "run_id": 27,
+      "artifact_id": 16,
+      "input_type": "text",
+      "model_name": "qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": null,
+      "specification": {
+        "project_summary": "Client describes a QA process where bugs are logged with severity and steps to reproduce, and tech leads assign developers.",
+        "features": [
+          {
+            "name": "Bug logging with severity and reproduction steps",
+            "description": "Allows QA to log bugs with severity level and detailed steps to reproduce the issue",
+            "priority": "medium"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "QA Engineer",
+            "goal": "Log a bug with severity and steps to reproduce",
+            "benefit": "Ensure bugs are properly categorized and documented for developer assignment"
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [],
+        "evidence_notes": [
+          "[TEXT] QA logs bugs with severity and steps to reproduce",
+          "[TEXT] tech leads assign developers"
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "I-01",
+    "project_name": "Image-Only: Login Screen",
+    "status_code": 200,
+    "response": {
+      "project_id": 28,
+      "input_id": 28,
+      "run_id": 28,
+      "artifact_id": 17,
+      "input_type": "image",
+      "model_name": "qwen2.5vl:3b + qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": {
+        "ui_components": [
+          "Input Work Email Address",
+          "Input Password (masked)",
+          "Checkbox: Remember me on this device",
+          "Button [Primary]: Sign In",
+          "Link: Forgot Password?"
+        ],
+        "visible_states": [
+          "Input Work Email Address",
+          "Input Password (masked)",
+          "Checkbox: Remember me on this device",
+          "Button [Primary]: Sign In",
+          "Link: Forgot Password?"
+        ],
+        "interactions": [
+          "Click on the Sign In button to submit the login form."
+        ],
+        "evidence_notes": [
+          "The form is for signing in to a client portal."
+        ],
+        "absent_or_unclear": []
+      },
+      "specification": {
+        "project_summary": "Client portal login form with email/password authentication",
+        "features": [
+          {
+            "name": "User Authentication",
+            "description": "Allows clients to securely authenticate using work email and password",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "Client",
+            "goal": "Sign in to the client portal",
+            "benefit": "Access to client portal features after successful authentication"
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [],
+        "evidence_notes": [
+          "[IMAGE] The form is for signing in to a client portal."
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "I-02",
+    "project_name": "Image-Only: Checkout Screen",
+    "status_code": 200,
+    "response": {
+      "project_id": 29,
+      "input_id": 29,
+      "run_id": 29,
+      "artifact_id": 18,
+      "input_type": "image",
+      "model_name": "qwen2.5vl:3b + qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": {
+        "ui_components": [
+          "Text: ORDER SUMMARY & PAYMENT",
+          "Text: Item: Pro Annual Plan - $120.00",
+          "Text: Input PromoCode | Button: Apply",
+          "Text: Radio: Credit Card | Radio: Bank Transfer",
+          "Text: Button [Primary]: Confirm & Pay"
+        ],
+        "visible_states": [
+          "PromoCode input field",
+          "Apply button",
+          "Credit Card radio button",
+          "Bank Transfer radio button",
+          "Confirm & Pay button"
+        ],
+        "interactions": [
+          "Apply button to apply promo code",
+          "Radio buttons to select payment method",
+          "Confirm & Pay button to proceed with payment"
+        ],
+        "evidence_notes": [
+          "ORDER SUMMARY & PAYMENT",
+          "Item: Pro Annual Plan - $120.00",
+          "Input PromoCode | Button: Apply",
+          "Radio: Credit Card | Radio: Bank Transfer",
+          "Button [Primary]: Confirm & Pay"
+        ],
+        "absent_or_unclear": [
+          "Promo code input field",
+          "Payment method selection",
+          "Payment confirmation",
+          "Error states or validation rules",
+          "Backend logic or workflows"
+        ]
+      },
+      "specification": {
+        "project_summary": "A payment processing interface for a subscription service where users can apply promo codes and select payment methods before finalizing their order.",
+        "features": [
+          {
+            "name": "Promo code application",
+            "description": "Allow users to enter and apply promo codes to reduce the total order price",
+            "priority": "high"
+          },
+          {
+            "name": "Payment method selection",
+            "description": "Provide options for users to choose between credit card and bank transfer as payment methods",
+            "priority": "high"
+          },
+          {
+            "name": "Order confirmation",
+            "description": "Finalize the payment process after user selects payment method and applies promo code",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "Customer",
+            "goal": "Apply a promo code to get a discount on their subscription order",
+            "benefit": "Reduce the total cost of the subscription plan by applying valid promo codes before payment"
+          },
+          {
+            "role": "Customer",
+            "goal": "Select a payment method to complete their subscription purchase",
+            "benefit": "Choose between credit card or bank transfer to pay for the subscription plan"
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [
+          "What are the specific validation rules for promo codes (e.g., format, expiration, validity with current order)?",
+          "How does the system handle payment method selection (e.g., credit card vs. bank transfer) after promo code application?",
+          "What error states or validation rules are required for the payment process (e.g., invalid promo codes, insufficient funds)?",
+          "What backend logic or workflows are needed to process the payment after confirmation?"
+        ],
+        "evidence_notes": []
+      }
+    }
+  },
+  {
+    "case_id": "I-03",
+    "project_name": "Image-Only: Ticket Queue",
+    "status_code": 200,
+    "response": {
+      "project_id": 30,
+      "input_id": 30,
+      "run_id": 30,
+      "artifact_id": 19,
+      "input_type": "image",
+      "model_name": "qwen2.5vl:3b + qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": {
+        "ui_components": [
+          "Filter Dropdown",
+          "Table Columns",
+          "Button"
+        ],
+        "visible_states": [
+          "Open",
+          "Pending",
+          "Resolved"
+        ],
+        "interactions": [
+          "Click on Filter Dropdown",
+          "Click on Table Columns",
+          "Click on Button: + New Ticket"
+        ],
+        "evidence_notes": [
+          "Filter Dropdown: Status (Open, Pending, Resolved)",
+          "Table Columns: Ticket ID, Customer, Priority, Updated",
+          "Row 1: #1042, Acme Corp, High, 10m ago"
+        ],
+        "absent_or_unclear": [
+          "Backend logic for filtering ticket status",
+          "Backend logic for updating ticket status",
+          "Backend logic for creating new tickets"
+        ]
+      },
+      "specification": {
+        "project_summary": "A ticket management system with a filter dropdown for status (Open, Pending, Resolved), table columns showing Ticket ID, Customer, Priority, and Updated timestamp, and a button to create new tickets. The system lacks visible backend logic for filtering, updating status, and creating tickets.",
+        "features": [
+          {
+            "name": "Status Filter",
+            "description": "Dropdown allowing selection of ticket status: Open, Pending, Resolved",
+            "priority": "high"
+          },
+          {
+            "name": "Ticket Table",
+            "description": "Table displaying ticket details: Ticket ID, Customer, Priority, and Updated timestamp",
+            "priority": "high"
+          },
+          {
+            "name": "New Ticket Creation",
+            "description": "Button to initiate new ticket creation",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "Ticket Manager",
+            "goal": "Filter tickets by status to view only open, pending, or resolved tickets",
+            "benefit": "Efficiently manage ticket workflow by status"
+          },
+          {
+            "role": "Customer Support Agent",
+            "goal": "View ticket details including customer information and priority to prioritize responses",
+            "benefit": "Rapidly identify high-priority tickets for immediate action"
+          },
+          {
+            "role": "Admin",
+            "goal": "Create new tickets through the system interface",
+            "benefit": "Streamline ticket creation process for new customer requests"
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [],
+        "evidence_notes": [
+          "[IMAGE] Filter Dropdown: Status (Open, Pending, Resolved)",
+          "[IMAGE] Table Columns: Ticket ID, Customer, Priority, Updated",
+          "[IMAGE] Row 1: #1042, Acme Corp, High, 10m ago"
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "I-04",
+    "project_name": "Image-Only: Account Settings",
+    "status_code": 200,
+    "response": {
+      "project_id": 31,
+      "input_id": 31,
+      "run_id": 31,
+      "artifact_id": 20,
+      "input_type": "image",
+      "model_name": "qwen2.5vl:3b + qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": {
+        "ui_components": [
+          "Field: Full Name (Editable)",
+          "Field: Role = 'Viewer' (Read-Only Badge)",
+          "Toggle: Email Notifications [ON]",
+          "Button [Danger]: Deactivate Account"
+        ],
+        "visible_states": [
+          "Full Name: Editable",
+          "Role: Viewer (Read-Only Badge)",
+          "Email Notifications: ON",
+          "Deactivate Account: Danger"
+        ],
+        "interactions": [
+          "Click on the 'Deactivate Account' button to proceed with account deactivation."
+        ],
+        "evidence_notes": [
+          "The screenshot shows an 'ACCOUNT SETTINGS' section with editable fields and a toggle for email notifications."
+        ],
+        "absent_or_unclear": [
+          "The backend logic for email notifications, validation rules, error states, and workflows are not visible in the image."
+        ]
+      },
+      "specification": {
+        "project_summary": "Client wants to manage user account settings with a focus on deactivation capabilities and role-based visibility.",
+        "features": [
+          {
+            "name": "Account Deactivation",
+            "description": "Allow users to permanently deactivate their account with a single action.",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "User",
+            "goal": "Deactivate their account securely and permanently",
+            "benefit": "Eliminate account access without compromising data integrity or security protocols."
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [],
+        "evidence_notes": [
+          "[IMAGE] The screenshot shows an 'ACCOUNT SETTINGS' section with editable fields and a toggle for email notifications."
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "I-05",
+    "project_name": "Image-Only: Room Scheduler",
+    "status_code": 200,
+    "response": {
+      "project_id": 32,
+      "input_id": 32,
+      "run_id": 32,
+      "artifact_id": 21,
+      "input_type": "image",
+      "model_name": "qwen2.5vl:3b + qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": {
+        "ui_components": [
+          "Date Picker",
+          "Room A",
+          "Room B"
+        ],
+        "visible_states": [
+          "Available",
+          "Booked 2pm-4pm"
+        ],
+        "interactions": [
+          "Book"
+        ],
+        "evidence_notes": [
+          "Date Picker: 2026-11-20",
+          "Floor: 3rd Floor",
+          "Room A (Capacity: 8) - [Available] - Button: Book",
+          "Room B (Capacity: 4) - [Booked 2pm-4pm]"
+        ],
+        "absent_or_unclear": [
+          "Backend logic for booking and availability check",
+          "Validation rules for date and room selection",
+          "Error states for invalid inputs",
+          "Workflow for updating room status after booking"
+        ]
+      },
+      "specification": {
+        "project_summary": "A room booking system for a 3rd floor with two rooms (A and B) that allows users to select a date and book a room. The system shows availability status for each room (available or booked) and has a 'Book' button for available rooms. The screenshot shows the current date as 2026-11-20, but backend logic for booking and availability checks is missing.",
+        "features": [
+          {
+            "name": "Room Availability Check",
+            "description": "System checks room availability based on selected date and time range",
+            "priority": "high"
+          },
+          {
+            "name": "Room Booking",
+            "description": "User can book an available room for a specific date and time",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "User",
+            "goal": "Book a room for a specific date",
+            "benefit": "User can reserve a room for their event on the selected date without conflicts with existing bookings"
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [
+          "What is the time range for room bookings?",
+          "How are room availability checks performed (real-time vs. scheduled)?",
+          "What validation rules apply to date and room selection?",
+          "What error states are handled for invalid inputs?",
+          "How is room status updated after a successful booking?"
+        ],
+        "evidence_notes": []
+      }
+    }
+  },
+  {
+    "case_id": "C-01",
+    "project_name": "Combined: Login + SSO Rule",
+    "status_code": 200,
+    "response": {
+      "project_id": 33,
+      "input_id": 33,
+      "run_id": 33,
+      "artifact_id": 22,
+      "input_type": "combined",
+      "model_name": "qwen2.5vl:3b + qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": {
+        "ui_components": [
+          "Input Work Email Address",
+          "Input Password (masked)",
+          "Checkbox: Remember me on this device",
+          "Button [Primary]: Sign In",
+          "Link: Forgot Password?"
+        ],
+        "visible_states": [
+          "Input Work Email Address",
+          "Input Password (masked)",
+          "Checkbox: Remember me on this device",
+          "Button [Primary]: Sign In",
+          "Link: Forgot Password?"
+        ],
+        "interactions": [
+          "Click on the Sign In button to submit the login form."
+        ],
+        "evidence_notes": [
+          "The form is for signing in to a client portal."
+        ],
+        "absent_or_unclear": []
+      },
+      "specification": {
+        "project_summary": "Client requires a standard login form with password security rules for v1, SSO excluded",
+        "features": [
+          {
+            "name": "Standard Login Form",
+            "description": "A form with email input, password input (masked), remember me checkbox, and sign-in button",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "Client User",
+            "goal": "Authenticate to the client portal",
+            "benefit": "Access to client portal features after successful authentication"
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [],
+        "evidence_notes": [
+          "[TEXT] Support standard login shown in screenshot.",
+          "[TEXT] Backend must lock accounts after 5 failed attempts; SSO is out of scope for v1.",
+          "[IMAGE] UI components: Input Work Email Address, Input Password (masked), Checkbox: Remember me on this device, Button [Primary]: Sign In, Link: Forgot Password?",
+          "[IMAGE] Visible states: Input Work Email: Email input field, Input Password: Password input field (masked), Checkbox: Remember me on this device, Button [Primary]: Sign In, Link: Forgot Password?",
+          "[IMAGE] Interactions: Click on the Sign In button to submit the login form.",
+          "[IMAGE] The form is for signing in to a client portal."
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "C-02",
+    "project_name": "Combined: Checkout + Invoice Rule",
+    "status_code": 200,
+    "response": {
+      "project_id": 34,
+      "input_id": 34,
+      "run_id": 34,
+      "artifact_id": 23,
+      "input_type": "combined",
+      "model_name": "qwen2.5vl:3b + qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": {
+        "ui_components": [
+          "Text: Item: Pro Annual Plan - $120.00",
+          "Text: Input PromoCode | Button: Apply",
+          "Text: Radio: CreditCard | Radio: Bank Transfer",
+          "Text: Button [Primary]: Confirm & Pay"
+        ],
+        "visible_states": [
+          "PromoCode input field",
+          "CreditCard radio button",
+          "Bank Transfer radio button",
+          "Confirm & Pay button"
+        ],
+        "interactions": [
+          "Apply promo code",
+          "Select payment method",
+          "Confirm payment"
+        ],
+        "evidence_notes": [
+          "PromoCode input field",
+          "CreditCard radio button",
+          "Bank Transfer radio button",
+          "Confirm & Pay button"
+        ],
+        "absent_or_unclear": [
+          "PromoCode validation rules",
+          "Payment method validation rules",
+          "Error states for promo code or payment method",
+          "Workflow for applying promo code or selecting payment method"
+        ]
+      },
+      "specification": {
+        "project_summary": "Checkout UI implementation with PDF receipt generation after payment confirmation",
+        "features": [
+          {
+            "name": "Checkout UI Implementation",
+            "description": "Implement the checkout interface with promo code input, payment method selection (credit card or bank transfer), and payment confirmation button",
+            "priority": "high"
+          },
+          {
+            "name": "PDF Receipt Generation",
+            "description": "Generate a downloadable PDF receipt after successful payment confirmation",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "Customer",
+            "goal": "Complete payment for the Pro Annual Plan subscription",
+            "benefit": "Receive a downloadable PDF receipt after payment confirmation for record-keeping and verification purposes"
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [],
+        "evidence_notes": [
+          "[TEXT] Implement the checkout UI shown. Generate a downloadable PDF receipt after payment confirmation.",
+          "[IMAGE] Text: Item: Pro Annual Plan - $120.00",
+          "[IMAGE] Text: Input PromoCode | Button: Apply",
+          "[IMAGE] Text: Radio: CreditCard | Radio: Bank Transfer",
+          "[IMAGE] Text: Button [Primary]: Confirm & Pay"
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "C-03",
+    "project_name": "Combined: Helpdesk + SLA Alert",
+    "status_code": 200,
+    "response": {
+      "project_id": 35,
+      "input_id": 35,
+      "run_id": 35,
+      "artifact_id": 24,
+      "input_type": "combined",
+      "model_name": "qwen2.5vl:3b + qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": {
+        "ui_components": [
+          "Filter Dropdown",
+          "Table Columns",
+          "Button: + New Ticket"
+        ],
+        "visible_states": [
+          "Open",
+          "Pending",
+          "Resolved"
+        ],
+        "interactions": [
+          "Click on the Filter Dropdown to select a ticket status"
+        ],
+        "evidence_notes": [
+          "Ticket ID: #1042",
+          "Customer: Acme Corp",
+          "Priority: High",
+          "Updated: 10m ago"
+        ],
+        "absent_or_unclear": [
+          "Backend logic for ticket status filtering",
+          "Validation rules for ticket creation",
+          "Error states for invalid inputs",
+          "Workflow for ticket resolution"
+        ]
+      },
+      "specification": {
+        "project_summary": "Client requires a ticket queue view with specific priority escalation logic for High priority tickets. The wireframe shows a ticket table with filter dropdown, table columns, and a new ticket button. Evidence indicates current High priority tickets are updated within 10 minutes but need to be escalated after 2 hours of inactivity.",
+        "features": [
+          {
+            "name": "Ticket Queue View",
+            "description": "Display tickets in a table with filterable status (Open, Pending, Resolved) and priority levels",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "Support Agent",
+            "goal": "View all tickets with filterable status and priority levels",
+            "benefit": "Quickly identify and prioritize high-priority tickets for timely resolution"
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [],
+        "evidence_notes": [
+          "[TEXT] Ticket ID: #1042",
+          "[TEXT] Customer: Acme Corp",
+          "[TEXT] Priority: High",
+          "[TEXT] Updated: 10m ago"
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "C-04",
+    "project_name": "Combined: Profile + Audit Log",
+    "status_code": 200,
+    "response": {
+      "project_id": 36,
+      "input_id": 36,
+      "run_id": 36,
+      "artifact_id": 25,
+      "input_type": "combined",
+      "model_name": "qwen2.5vl:3b + qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": {
+        "ui_components": [
+          "Field: Full Name (Editable)",
+          "Field: Role = 'Viewer' (Read-Only Badge)",
+          "Toggle: Email Notifications [ON]",
+          "Button [Danger]: Deactivate Account"
+        ],
+        "visible_states": [
+          "Full Name: Editable",
+          "Role: Viewer (Read-Only Badge)",
+          "Email Notifications: ON",
+          "Deactivate Account: [Danger]"
+        ],
+        "interactions": [
+          "Click on the 'Deactivate Account' button to deactivate the account."
+        ],
+        "evidence_notes": [
+          "Field: Full Name (Editable)",
+          "Field: Role = 'Viewer' (Read-Only Badge)",
+          "Toggle: Email Notifications [ON]",
+          "Button [Danger]: Deactivate Account"
+        ],
+        "absent_or_unclear": [
+          "Backend logic for email notifications",
+          "Validation rules for email notifications",
+          "Error states for email notifications",
+          "Workflow for email notifications",
+          "Backend logic for account deactivation",
+          "Validation rules for account deactivation",
+          "Error states for account deactivation",
+          "Workflow for account deactivation"
+        ]
+      },
+      "specification": {
+        "project_summary": "A user management system where account deactivation is a critical action restricted to Admins, with role fields being read-only for non-Admins. The system logs deactivation events but lacks clear backend rules for deactivation and email notifications.",
+        "features": [
+          {
+            "name": "Role field read-only restriction",
+            "description": "The Role field displays 'Viewer' as a read-only badge and is only modifiable by Admins.",
+            "priority": "high"
+          },
+          {
+            "name": "Account deactivation",
+            "description": "Admins can deactivate accounts via a 'Deactivate Account' button, triggering a log event.",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "Admin",
+            "goal": "Deactivate an account",
+            "benefit": "Log the deactivation event for audit purposes and prevent unauthorized role changes by non-Admins."
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [],
+        "evidence_notes": [
+          "[TEXT] Only Admins can change the Role field shown as read-only.",
+          "[TEXT] Log all account deactivation events.",
+          "[IMAGE] Field: Full Name (Editable)",
+          "[IMAGE] Field: Role = 'Viewer' (Read-Only Badge)",
+          "[IMAGE] Toggle: Email Notifications [ON]",
+          "[IMAGE] Button [Danger]: Deactivate Account"
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "C-05",
+    "project_name": "Combined: Scheduler + Recurring Rule",
+    "status_code": 200,
+    "response": {
+      "project_id": 37,
+      "input_id": 37,
+      "run_id": 37,
+      "artifact_id": 26,
+      "input_type": "combined",
+      "model_name": "qwen2.5vl:3b + qwen3:4b",
+      "prompt_version": "spec_v2",
+      "review_status": "draft",
+      "image_evidence": {
+        "ui_components": [
+          "Date Picker",
+          "Room A",
+          "Room B"
+        ],
+        "visible_states": [
+          "Available",
+          "Booked 2pm-4pm"
+        ],
+        "interactions": [
+          "Book"
+        ],
+        "evidence_notes": [
+          "Meeting Room Scheduler",
+          "Date Picker: 2026-11-20",
+          "Floor: 3rd Floor",
+          "Room A (Capacity: 8) - Available",
+          "Room B (Capacity: 4) - Booked 2pm-4pm"
+        ],
+        "absent_or_unclear": [
+          "Backend logic for room availability",
+          "Validation rules for date picker",
+          "Error states for unavailable rooms",
+          "Workflow for booking a room"
+        ]
+      },
+      "specification": {
+        "project_summary": "Client requires a room booking system with constraints: prevent overlapping bookings and limit bookings to 2 hours max. UI shows date picker, two rooms (A and B) with availability states. Evidence indicates current booking for Room B from 2pm-4pm, Room A available. Backend logic and validation rules are absent from UI.",
+        "features": [
+          {
+            "name": "Prevent overlapping bookings",
+            "description": "Ensure that no two bookings occupy the same room at the same time",
+            "priority": "high"
+          },
+          {
+            "name": "Max booking duration of 2 hours",
+            "description": "Restrict booking duration to a maximum of 2 hours (120 minutes)",
+            "priority": "high"
+          }
+        ],
+        "user_stories": [
+          {
+            "role": "User",
+            "goal": "Book a room for a meeting without overlapping with existing bookings",
+            "benefit": "Ensures smooth scheduling without conflicts"
+          },
+          {
+            "role": "User",
+            "goal": "Limit booking duration to 2 hours to avoid long meetings",
+            "benefit": "Prevents over-scheduling and ensures reasonable meeting lengths"
+          }
+        ],
+        "assumptions": [],
+        "open_questions": [],
+        "evidence_notes": [
+          "[TEXT] Meeting Room Scheduler",
+          "[TEXT] Date Picker: 2026-11-20",
+          "[TEXT] Floor: 3rd Floor",
+          "[TEXT] Room A (Capacity: 8) - Available",
+          "[TEXT] Room B (Capacity: 4) - Booked 2pm-4pm"
+        ]
+      }
+    }
+  }
+]

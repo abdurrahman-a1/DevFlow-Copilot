@@ -35,8 +35,7 @@ def test_api_handles_too_short_input_gracefully():
         json={"project_name": "Short Test", "raw_text": "hi"},
     )
     assert response.status_code == 422
-    assert "too short" in response.json()["detail"].lower()
-
+    assert "min 10 chars" in response.json()["detail"].lower()
 
 def test_api_handles_ollama_runtime_failure_gracefully(monkeypatch):
     def fake_chat(*args, **kwargs):
