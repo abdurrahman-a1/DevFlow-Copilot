@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Optional
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Response, UploadFile
+from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from app.core.config import (
@@ -19,7 +20,14 @@ from app.core.config import (
     VISION_PROMPT_VERSION,
 )
 from app.core.database import get_db
-from app.models.db_models import Artifact, GenerationRun, InputDocument, Project
+from app.models.db_models import (
+    Artifact,
+    EvaluationTest,
+    GenerationRun,
+    InputDocument,
+    Project,
+    ReviewFeedback,
+)
 from app.schemas.spec_schema import (
     GenerateArtifactsResponse,
     GenerateRequest,
@@ -37,6 +45,16 @@ from app.services.ollama_service import (
 from app.services.prompt_loader import load_prompt
 
 router = APIRouter(prefix="/api/v1", tags=["DevFlow Copilot"])
+
+
+class ReviewActionRequest(BaseModel):
+    action: str  # "approved" | "edited" | "rejected"
+    reviewer_note: Optional[str] = None
+    edited_json: Optional[str] = None
+
+
+class RegenerateRequest(BaseModel):
+    reviewer_feedback: str
 
 
 def _sanitize_and_save_upload(upload: UploadFile) -> Path:
@@ -333,3 +351,179 @@ def export_run_package(run_id: int, format: str = "markdown", db: Session = Depe
         media_type="text/markdown",
         headers={"Content-Disposition": f"attachment; filename=devflow_run_{run_id}.md"},
     )
+
+
+@router.get("/projects")
+def list_projects_and_runs(db: Session = Depends(get_db)):
+    projects = db.query(Project).order_by(Project.created_at.desc()).all()
+    history = []
+    for proj in projects:
+        runs = db.query(GenerationRun).filter(GenerationRun.project_id == proj.project_id).all()
+        for r in runs:
+            spec_art = (
+                db.query(Artifact)
+                .filter(Artifact.run_id == r.run_id, Artifact.type == "specification")
+                .first()
+            )
+            history.append(
+                {
+                    "project_id": proj.project_id,
+                    "project_name": proj.name,
+                    "run_id": r.run_id,
+                    "model_name": r.model_name,
+                    "prompt_version": r.prompt_version,
+                    "run_status": r.status,
+                    "review_status": spec_art.review_status if spec_art else "none",
+                    "artifact_id": spec_art.artifact_id if spec_art else None,
+                    "created_at": r.created_at.isoformat() if r.created_at else "",
+                }
+            )
+    return {"runs": history}
+
+
+@router.get("/runs/{run_id}")
+def get_run_details(run_id: int, db: Session = Depends(get_db)):
+    run = db.query(GenerationRun).filter(GenerationRun.run_id == run_id).first()
+    if not run:
+        raise HTTPException(status_code=404, detail=f"Run {run_id} not found.")
+
+    project = db.query(Project).filter(Project.project_id == run.project_id).first()
+    input_doc = db.query(InputDocument).filter(InputDocument.project_id == run.project_id).first()
+    artifacts = db.query(Artifact).filter(Artifact.run_id == run_id).all()
+
+    spec_data = {}
+    spec_artifact_id = None
+    review_status = "draft"
+    eng_data = {}
+
+    for art in artifacts:
+        parsed = json.loads(art.content_json)
+        if art.type == "specification":
+            spec_data = parsed
+            spec_artifact_id = art.artifact_id
+            review_status = art.review_status
+        elif art.type == "developer_prompt":
+            eng_data["developer_prompt"] = parsed.get("prompt", "")
+        elif art.type == "client_update":
+            eng_data["client_update"] = parsed.get("summary", "")
+        elif art.type == "release_notes":
+            eng_data["release_notes"] = parsed.get("notes", "")
+        else:
+            eng_data[art.type] = parsed
+
+    feedbacks = []
+    if spec_artifact_id:
+        fb_rows = (
+            db.query(ReviewFeedback)
+            .filter(ReviewFeedback.artifact_id == spec_artifact_id)
+            .order_by(ReviewFeedback.created_at.desc())
+            .all()
+        )
+        feedbacks = [
+            {"label": f.label, "reviewer_note": f.reviewer_note, "created_at": f.created_at.isoformat()}
+            for f in fb_rows
+        ]
+
+    return {
+        "project_id": run.project_id,
+        "project_name": project.name if project else "",
+        "input_type": input_doc.input_type if input_doc else "text",
+        "source_text": input_doc.source_text if input_doc else "",
+        "run_id": run.run_id,
+        "artifact_id": spec_artifact_id,
+        "model_name": run.model_name,
+        "prompt_version": run.prompt_version,
+        "review_status": review_status,
+        "specification": spec_data,
+        "engineering_artifacts": eng_data if eng_data else None,
+        "review_history": feedbacks,
+    }
+
+
+@router.post("/artifacts/{artifact_id}/review")
+def review_artifact(artifact_id: int, payload: ReviewActionRequest, db: Session = Depends(get_db)):
+    action = payload.action.strip().lower()
+    if action not in ("approved", "edited", "rejected"):
+        raise HTTPException(status_code=422, detail="Action must be 'approved', 'edited', or 'rejected'.")
+
+    artifact = db.query(Artifact).filter(Artifact.artifact_id == artifact_id).first()
+    if not artifact:
+        raise HTTPException(status_code=404, detail=f"Artifact {artifact_id} not found.")
+
+    if action == "edited":
+        if not payload.edited_json:
+            raise HTTPException(status_code=422, detail="edited_json is required when action is 'edited'.")
+        try:
+            validated = ProjectSpecification.model_validate_json(payload.edited_json)
+            artifact.content_json = validated.model_dump_json(indent=2)
+        except Exception as exc:
+            raise HTTPException(status_code=422, detail=f"Edited JSON failed schema validation: {exc}")
+
+    # Update status across all artifacts belonging to the same run
+    db.query(Artifact).filter(Artifact.run_id == artifact.run_id).update({"review_status": action})
+
+    fb = ReviewFeedback(
+        artifact_id=artifact_id,
+        reviewer_note=payload.reviewer_note,
+        label=action,
+    )
+    db.add(fb)
+    db.commit()
+
+    return {
+        "artifact_id": artifact_id,
+        "run_id": artifact.run_id,
+        "review_status": action,
+        "reviewer_note": payload.reviewer_note,
+    }
+
+
+@router.post("/runs/{run_id}/regenerate", response_model=GenerateResponse)
+def regenerate_with_feedback(run_id: int, payload: RegenerateRequest, db: Session = Depends(get_db)):
+    run = db.query(GenerationRun).filter(GenerationRun.run_id == run_id).first()
+    if not run:
+        raise HTTPException(status_code=404, detail=f"Run {run_id} not found.")
+
+    project = db.query(Project).filter(Project.project_id == run.project_id).first()
+    input_doc = db.query(InputDocument).filter(InputDocument.project_id == run.project_id).first()
+    if not input_doc:
+        raise HTTPException(status_code=404, detail="Original input document not found for regeneration.")
+
+    combined_text = (
+        f"{input_doc.source_text}\n\n"
+        f"[HUMAN REVIEWER FEEDBACK FOR REVISION]:\n{payload.reviewer_feedback.strip()}"
+    )
+    saved_path = Path(input_doc.file_path) if input_doc.file_path else None
+
+    return _run_generation_pipeline(
+        db=db,
+        project_name=project.name if project else f"Project-{run.project_id}",
+        project_description=project.description if project else None,
+        raw_text=combined_text,
+        saved_image_path=saved_path if (saved_path and saved_path.exists()) else None,
+    )
+
+
+@router.get("/evaluation/summary")
+def get_evaluation_summary(db: Session = Depends(get_db)):
+    rows = db.query(EvaluationTest).all()
+    if not rows:
+        return {"total_records": 0, "by_prompt": {}}
+
+    by_prompt: dict[str, list[EvaluationTest]] = {}
+    for r in rows:
+        by_prompt.setdefault(r.prompt_version, []).append(r)
+
+    summary = {}
+    for pv, items in by_prompt.items():
+        n = len(items)
+        summary[pv] = {
+            "count": n,
+            "pass_rate_pct": round(sum(i.structure_valid for i in items) / n * 100, 1),
+            "avg_completeness": round(sum(i.completeness_score for i in items) / n, 2),
+            "avg_evidence_fidelity": round(sum(i.evidence_fidelity_score for i in items) / n, 2),
+            "avg_uncertainty": round(sum(i.uncertainty_score for i in items) / n, 2),
+            "avg_usefulness": round(sum(i.usefulness_score for i in items) / n, 2),
+            "avg_overall": round(sum(i.overall_score for i in items) / n, 2),
+        }
+    return {"total_records": len(rows), "by_prompt": summary}
